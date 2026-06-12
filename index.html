@@ -1,0 +1,1096 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>小金井市長 白井とおる | Visual Mock</title>
+  <style>
+    :root {
+      --yellow: #fff100;
+      --blue: #00a0e9;
+      --enji: #e4007f;
+      --ink: #17212b;
+      --muted: #5b6673;
+      --paper: #fffdf3;
+      --line: #e7edf2;
+      --soft-blue: #e8f7fd;
+      --soft-pink: #ffe8f3;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #fff;
+      font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+      line-height: 1.75;
+      letter-spacing: 0;
+    }
+
+    body.auth-locked {
+      overflow: hidden;
+    }
+
+    body.auth-locked .site-header,
+    body.auth-locked main {
+      display: none;
+    }
+
+    .auth-screen {
+      display: none;
+    }
+
+    body.auth-locked .auth-screen {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 28px;
+      background:
+        linear-gradient(100deg, rgba(0, 160, 233, .92) 0%, rgba(55, 185, 239, .92) 100%),
+        #00a0e9;
+    }
+
+    .auth-panel {
+      width: min(520px, 100%);
+      padding: clamp(26px, 5vw, 44px);
+      background: #fff;
+      border: 6px solid var(--yellow);
+      box-shadow: 10px 10px 0 rgba(23, 33, 43, .22);
+    }
+
+    .auth-panel h1 {
+      margin: 0 0 12px;
+      color: var(--enji);
+      background: none;
+      -webkit-background-clip: initial;
+      background-clip: initial;
+      filter: none;
+      font-size: clamp(30px, 5vw, 48px);
+      line-height: 1.12;
+      font-weight: 950;
+    }
+
+    .auth-panel p {
+      margin: 0 0 22px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .auth-form {
+      display: grid;
+      gap: 12px;
+    }
+
+    .auth-form input {
+      width: 100%;
+      min-height: 54px;
+      padding: 12px 14px;
+      border: 3px solid var(--ink);
+      font: inherit;
+      font-weight: 800;
+    }
+
+    .auth-form button {
+      min-height: 54px;
+      border: 3px solid var(--ink);
+      color: #fff;
+      background: var(--blue);
+      font: inherit;
+      font-weight: 950;
+      cursor: pointer;
+      box-shadow: 5px 5px 0 var(--ink);
+    }
+
+    .auth-error {
+      min-height: 1.4em;
+      color: var(--enji);
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 0 clamp(18px, 4vw, 56px) 0 0;
+      background: rgba(255, 255, 255, .95);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: flex-end;
+      min-width: min(520px, 44vw);
+      min-height: 76px;
+      padding: 10px clamp(18px, 3vw, 34px) 8px clamp(18px, 3vw, 34px);
+      color: #fff;
+      background: linear-gradient(100deg, var(--blue) 0%, #37b9ef 62%, #8bd8f6 100%);
+      border-bottom: 8px solid var(--yellow);
+      font-weight: 900;
+      line-height: .92;
+    }
+
+    .brand small {
+      display: block;
+      color: #fff;
+      font-size: clamp(18px, 2vw, 26px);
+      font-weight: 950;
+      line-height: 1;
+    }
+
+    .brand-title {
+      display: block;
+      color: #fff;
+      font-size: clamp(28px, 4.2vw, 58px);
+      font-weight: 950;
+      letter-spacing: 0;
+      white-space: nowrap;
+    }
+
+    .brand-year {
+      display: inline-block;
+      margin-left: .16em;
+      font-size: 1.28em;
+      font-style: italic;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: clamp(12px, 2vw, 26px);
+      font-size: 14px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .nav-cta {
+      padding: 9px 16px;
+      color: #fff;
+      background: var(--enji);
+      border-radius: 999px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      min-height: min(820px, calc(100vh - 74px));
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(420px, 44vw);
+      align-items: stretch;
+      background: #fff;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(255, 241, 0, .22), rgba(255, 241, 0, .22)) 8% 18% / 96px 18px no-repeat,
+        linear-gradient(90deg, rgba(0, 160, 233, .10), rgba(0, 160, 233, .10)) 28% 68% / 128px 16px no-repeat,
+        linear-gradient(90deg, rgba(228, 0, 127, .10), rgba(228, 0, 127, .10)) 52% 20% / 74px 14px no-repeat,
+        linear-gradient(90deg, rgba(255, 241, 0, .20), rgba(255, 241, 0, .20)) 78% 72% / 142px 18px no-repeat,
+        linear-gradient(90deg, rgba(0, 160, 233, .08), rgba(0, 160, 233, .08)) 92% 28% / 112px 14px no-repeat,
+        linear-gradient(90deg, rgba(228, 0, 127, .08), rgba(228, 0, 127, .08)) 18% 88% / 86px 12px no-repeat,
+        linear-gradient(180deg, rgba(0, 160, 233, .025) 0 1px, transparent 1px) 0 0 / 100% 86px,
+        linear-gradient(180deg, #fff 0%, #f7fcff 100%);
+      opacity: 1;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 32vw;
+      bottom: 0;
+      z-index: 1;
+      height: clamp(138px, 17vw, 194px);
+      background: linear-gradient(100deg, var(--blue) 0%, #37b9ef 72%, rgba(139, 216, 246, .9) 100%);
+      clip-path: polygon(0 0, 100% 0, 92% 100%, 0 100%);
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 3;
+      max-width: 930px;
+      padding: clamp(46px, 6vw, 76px) clamp(20px, 5vw, 72px) clamp(210px, 22vw, 252px);
+    }
+
+    .hero-copy::before {
+      content: "";
+      position: absolute;
+      left: clamp(260px, 30vw, 520px);
+      top: clamp(150px, 18vw, 230px);
+      z-index: -1;
+      width: 280px;
+      height: 140px;
+      border-radius: 48% 52% 45% 55%;
+      background: rgba(0, 160, 233, .08);
+      transform: rotate(-8deg);
+    }
+
+    .hero-copy::after {
+      content: "";
+      position: absolute;
+      left: clamp(300px, 36vw, 560px);
+      bottom: clamp(150px, 18vw, 210px);
+      z-index: -1;
+      width: 220px;
+      height: 92px;
+      border: 4px solid rgba(255, 241, 0, .22);
+      border-radius: 26px;
+      transform: rotate(7deg);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
+      padding: 6px 0 6px 14px;
+      border-left: 8px solid var(--yellow);
+      color: var(--blue);
+      background: transparent;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: .04em;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      background: var(--enji);
+      border-radius: 50%;
+    }
+
+    h1 {
+      margin: 0;
+      color: transparent;
+      background: linear-gradient(115deg, var(--enji) 0%, #ef4aa4 58%, #c90073 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      font-size: clamp(42px, 5.15vw, 78px);
+      line-height: 1.12;
+      font-weight: 950;
+      letter-spacing: 0;
+      filter: drop-shadow(0 2px 0 rgba(23, 33, 43, .08));
+    }
+
+    .name-line {
+      display: block;
+      margin-top: 0;
+      color: transparent;
+      background: linear-gradient(115deg, var(--enji) 0%, #ef4aa4 58%, #c90073 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      font-size: clamp(38px, 4.85vw, 70px);
+      white-space: nowrap;
+    }
+
+    .main-line {
+      display: block;
+      font-size: clamp(38px, 4.7vw, 70px);
+      white-space: nowrap;
+    }
+
+    .lead {
+      max-width: 610px;
+      margin: 24px 0 0;
+      font-size: clamp(17px, 1.75vw, 24px);
+      font-weight: 900;
+      line-height: 1.55;
+    }
+
+    .lead span {
+      padding: 0 5px;
+      background: linear-gradient(transparent 57%, var(--yellow) 57%);
+    }
+
+    .lead strong {
+      color: var(--enji);
+      font-size: 1.14em;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 12px 22px;
+      border: 3px solid var(--ink);
+      background: #fff;
+      font-weight: 900;
+      line-height: 1.2;
+      box-shadow: 5px 5px 0 var(--ink);
+    }
+
+    .button.primary {
+      color: #fff;
+      background: var(--blue);
+    }
+
+    .hero-photo {
+      position: relative;
+      z-index: 4;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      padding: 20px clamp(16px, 3vw, 48px) 0 0;
+    }
+
+    .hero-photo::after {
+      display: none;
+    }
+
+    .hero-photo img {
+      width: min(560px, 46vw);
+      max-height: calc(100vh - 92px);
+      object-fit: contain;
+      object-position: right bottom;
+      filter: drop-shadow(0 26px 34px rgba(20, 32, 43, .18));
+    }
+
+    .hero-band {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      gap: clamp(16px, 2vw, 28px);
+      width: min(76vw, calc(100% - 390px));
+      min-height: clamp(138px, 17vw, 194px);
+      padding: 26px clamp(24px, 5vw, 72px);
+      color: #fff;
+      border-bottom: 10px solid var(--yellow);
+      font-size: clamp(36px, 5.1vw, 74px);
+      font-weight: 950;
+      line-height: 1;
+    }
+
+    .hero-band-label {
+      text-shadow: 0 3px 0 rgba(23, 33, 43, .08);
+    }
+
+    .play-dot {
+      position: relative;
+      flex: 0 0 auto;
+      display: inline-grid;
+      place-items: center;
+      width: clamp(42px, 4.7vw, 68px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: #fff;
+    }
+
+    .play-dot::before {
+      content: "";
+      width: 0;
+      height: 0;
+      margin-left: 5px;
+      border-top: 11px solid transparent;
+      border-bottom: 11px solid transparent;
+      border-left: 17px solid var(--blue);
+    }
+
+    .quick-links {
+      position: relative;
+      z-index: 5;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      margin: 0 clamp(18px, 5vw, 72px) 0;
+      border: 4px solid var(--ink);
+      background: #fff;
+      box-shadow: 9px 9px 0 rgba(23, 33, 43, .12);
+    }
+
+    .quick-links-title {
+      margin: 48px clamp(18px, 5vw, 72px) 14px;
+      color: var(--ink);
+      font-size: clamp(28px, 4vw, 48px);
+      line-height: 1.2;
+      font-weight: 950;
+    }
+
+    .quick-link {
+      min-height: 142px;
+      padding: 20px 18px;
+      border-right: 2px solid var(--line);
+      font-weight: 950;
+      line-height: 1.45;
+    }
+
+    .quick-link:last-child { border-right: 0; }
+
+    .quick-link strong {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 5px 8px;
+      color: #fff;
+      background: var(--blue);
+      font-size: 13px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    .quick-link-title {
+      display: block;
+      color: var(--blue);
+      font-size: clamp(16px, 1.35vw, 22px);
+      line-height: 1.35;
+    }
+
+    .section {
+      padding: clamp(68px, 8vw, 112px) clamp(18px, 5vw, 72px);
+    }
+
+    .section.alt { background: var(--paper); }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 34px;
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: clamp(34px, 5vw, 66px);
+      line-height: 1.02;
+      font-weight: 950;
+    }
+
+    .note {
+      max-width: 430px;
+      margin: 0;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .policy-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .policy-card {
+      position: relative;
+      min-height: 0;
+      padding: 26px;
+      overflow: hidden;
+      border: 3px solid var(--ink);
+      background: #fff;
+    }
+
+    .policy-card:nth-child(3n + 1) { box-shadow: 8px 8px 0 var(--yellow); }
+    .policy-card:nth-child(3n + 2) { box-shadow: 8px 8px 0 var(--blue); }
+    .policy-card:nth-child(3n) { box-shadow: 8px 8px 0 var(--enji); }
+
+    .num {
+      color: var(--enji);
+      font-size: 15px;
+      font-weight: 950;
+      letter-spacing: .08em;
+    }
+
+    .policy-card h3 {
+      margin: 12px 0 12px;
+      font-size: 30px;
+      line-height: 1.24;
+      font-weight: 950;
+    }
+
+    .policy-card p {
+      margin: 0;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .policy-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .policy-row {
+      display: grid;
+      grid-template-columns: minmax(128px, .82fr) minmax(0, 1.18fr);
+      gap: 12px;
+      padding: 11px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .policy-row:first-child { border-top: 0; }
+
+    .policy-name {
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 950;
+      line-height: 1.45;
+    }
+
+    .policy-detail {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.6;
+    }
+
+    .policy-more {
+      margin-top: 18px;
+      border-top: 2px solid var(--line);
+    }
+
+    .policy-more summary {
+      cursor: pointer;
+      padding: 14px 0 0;
+      color: var(--enji);
+      font-size: 14px;
+      font-weight: 950;
+      list-style: none;
+    }
+
+    .policy-more summary::-webkit-details-marker { display: none; }
+
+    .policy-more summary::after {
+      content: "+";
+      display: inline-grid;
+      place-items: center;
+      width: 22px;
+      height: 22px;
+      margin-left: 8px;
+      color: #fff;
+      background: var(--enji);
+      border-radius: 50%;
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    .policy-more[open] summary::after { content: "-"; }
+
+    .policy-more .policy-list { margin-top: 12px; }
+
+    .theme-strip {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .theme-chip {
+      min-height: 118px;
+      padding: 16px;
+      background: var(--soft-blue);
+      border-left: 7px solid var(--yellow);
+      font-weight: 800;
+    }
+
+    .theme-chip strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--enji);
+      font-size: 15px;
+      line-height: 1.3;
+    }
+
+    .theme-chip span {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .results {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .result-item {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 18px;
+      align-items: start;
+      padding: 22px;
+      background: #fff;
+      border-top: 5px solid var(--blue);
+      box-shadow: 0 14px 30px rgba(23, 33, 43, .08);
+    }
+
+    .result-item .badge {
+      display: grid;
+      place-items: center;
+      width: 72px;
+      height: 72px;
+      color: #fff;
+      background: var(--enji);
+      font-size: 24px;
+      font-weight: 950;
+      line-height: 1;
+    }
+
+    .result-item h3 {
+      margin: 0 0 8px;
+      font-size: 22px;
+      line-height: 1.35;
+    }
+
+    .result-item p {
+      margin: 0;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .message {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: clamp(28px, 5vw, 70px);
+      align-items: center;
+      background: var(--soft-blue);
+    }
+
+    .message figure {
+      margin: 0;
+      display: grid;
+      place-items: center;
+      min-height: 520px;
+      background: #fff;
+      border: 4px solid var(--ink);
+      box-shadow: 10px 10px 0 var(--yellow);
+    }
+
+    .message img {
+      width: min(360px, 80%);
+      max-height: 500px;
+      object-fit: contain;
+    }
+
+    .message h2 {
+      margin: 0 0 24px;
+      font-size: clamp(34px, 5vw, 64px);
+      line-height: 1.15;
+      font-weight: 950;
+    }
+
+    .message p {
+      margin: 0 0 18px;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1.9;
+    }
+
+    .voices {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .voice {
+      padding: 22px;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: 0 12px 24px rgba(23, 33, 43, .07);
+    }
+
+    .voice img {
+      width: 76px;
+      height: 76px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid var(--yellow);
+    }
+
+    .voice h3 {
+      margin: 14px 0 0;
+      font-size: 20px;
+      line-height: 1.25;
+    }
+
+    .voice small {
+      display: block;
+      margin: 4px 0 12px;
+      color: var(--blue);
+      font-weight: 900;
+    }
+
+    .voice p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .footer-cta {
+      padding: 56px clamp(18px, 5vw, 72px);
+      color: #fff;
+      background: linear-gradient(100deg, var(--blue) 0%, #37b9ef 100%);
+      text-align: center;
+    }
+
+    .footer-cta h2 {
+      margin: 0 0 20px;
+      font-size: clamp(30px, 5vw, 54px);
+      line-height: 1.15;
+    }
+
+    .footer-cta .button {
+      border-color: #fff;
+      color: var(--ink);
+      box-shadow: 5px 5px 0 var(--blue);
+    }
+
+    @media (max-width: 920px) {
+      .nav { display: none; }
+      .hero {
+        min-height: auto;
+        grid-template-columns: 1fr;
+      }
+      .hero::after { display: none; }
+      .hero-copy {
+        max-width: none;
+        padding: 44px 22px 24px;
+      }
+      .hero-copy::before {
+        left: 38%;
+        top: 150px;
+        width: 220px;
+        height: 90px;
+      }
+      .hero-copy::after {
+        left: auto;
+      right: 26px;
+      bottom: -38px;
+      width: 126px;
+      height: 126px;
+    }
+      .hero-photo {
+        min-height: 430px;
+        justify-content: center;
+        padding: 0 18px;
+      }
+      .hero-photo img {
+        width: min(430px, 88vw);
+        max-height: 430px;
+      }
+      .hero-band {
+        position: relative;
+        width: 100%;
+        min-height: auto;
+        padding: 26px 22px;
+        background: linear-gradient(100deg, var(--blue) 0%, #37b9ef 100%);
+        font-size: clamp(34px, 9vw, 58px);
+      }
+      .quick-links,
+      .policy-grid,
+      .theme-strip,
+      .results,
+      .message,
+      .voices {
+        grid-template-columns: 1fr;
+      }
+      .policy-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+      .quick-link {
+        border-right: 0;
+        border-bottom: 2px solid var(--line);
+      }
+      .quick-link:last-child { border-bottom: 0; }
+      .section-head {
+        display: block;
+      }
+      .note { margin-top: 16px; }
+    }
+
+    @media (max-width: 560px) {
+      .site-header { padding-right: 12px; }
+      .brand {
+        min-width: 230px;
+        min-height: 62px;
+        padding: 8px 14px 7px;
+      }
+      .brand small { font-size: 14px; }
+      .brand-title { font-size: 26px; }
+      .hero-actions { display: grid; }
+      .eyebrow { font-size: 13px; }
+      h1 { font-size: clamp(34px, 9.2vw, 46px); }
+      .name-line { font-size: clamp(28px, 7.7vw, 38px); }
+      .lead { font-size: 16px; }
+      .hero-photo { min-height: 360px; }
+      .hero-photo img { max-height: 360px; }
+      .policy-card { padding: 20px; }
+      .policy-card h3 { font-size: 24px; }
+      .theme-chip { min-height: 0; }
+      .result-item { grid-template-columns: 1fr; }
+      .message figure { min-height: 380px; }
+    }
+  </style>
+</head>
+<body class="auth-locked">
+  <div class="auth-screen" aria-label="パスワード入力画面">
+    <div class="auth-panel">
+      <h1>白井とおる2026</h1>
+      <p>レビュー用モックです。共有されたパスワードを入力してください。</p>
+      <form class="auth-form">
+        <input type="password" name="password" autocomplete="current-password" placeholder="パスワード" aria-label="パスワード">
+        <button type="submit">表示する</button>
+        <div class="auth-error" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
+  <header class="site-header">
+    <a class="brand" href="#">
+      <span>
+        <small>小金井市長</small>
+        <span class="brand-title">白井とおる<span class="brand-year">2026</span></span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="主要ナビゲーション">
+      <a href="#dialogue">対話の市政</a>
+      <a href="#results">実績</a>
+      <a href="#policy">政策</a>
+      <a href="#message">ご挨拶</a>
+      <a href="#profile">プロフィール</a>
+      <a class="nav-cta" href="#support">サポートする</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <h1><span class="main-line">みんなでつくろう。</span><span class="name-line">いろいろが彩るまち</span></h1>
+        <p class="lead">４つの重要課題の解決に取り組み、市民参加・協働と地域資源を活用し、多様性を尊重し合うあらゆる世代のすべての市民が暮らしやすい街づくりをめざします。</p>
+      </div>
+      <div class="hero-photo">
+        <img src="assets/photo-image02.png" alt="白井とおる">
+      </div>
+      <a class="hero-band" href="#message">
+        <span class="hero-band-label">白井とおるの決意</span>
+        <span class="play-dot" aria-hidden="true"></span>
+      </a>
+    </section>
+
+    <h2 class="quick-links-title">4つの課題への取り組み</h2>
+    <div class="quick-links">
+      <a class="quick-link" href="#results"><strong>新庁舎＆福祉会館</strong><span class="quick-link-title">設計再開→建設予算可決も、2度の入札中止で再調整</span></a>
+      <a class="quick-link" href="#results"><strong>市立保育園 廃園問題</strong><span class="quick-link-title">議論の末に2園は廃園。市全体の保育の質の維持・向上の仕組み構築</span></a>
+      <a class="quick-link" href="#results"><strong>2本の都市計画道路</strong><span class="quick-link-title">3・4・1号線「見直し」、3・4・11号線「必要性は否めず」と結論</span></a>
+      <a class="quick-link" href="#results"><strong>物価高騰への対策</strong><span class="quick-link-title">市民の暮らしと事業者の仕事を守る、様々な支援を実施</span></a>
+    </div>
+
+    <section id="policy" class="section">
+      <div class="section-head">
+        <h2 class="section-title">政策Next</h2>
+        <p class="note">環境、地域、子ども、文化を軸に、暮らしやすさを支える具体策を進めます。</p>
+      </div>
+      <div class="policy-grid">
+        <article class="policy-card">
+          <div class="num">01</div>
+          <h3>環境と都市基盤</h3>
+          <p>ゼロカーボン、資源循環、誰もが使いやすい公園、駅周辺整備を一体で進めます。</p>
+          <div class="policy-list">
+            <div class="policy-row"><span class="policy-name">ゼロカーボンシティ</span><span class="policy-detail">2050年CO2排出実質ゼロを目指す</span></div>
+            <div class="policy-row"><span class="policy-name">若者気候市民会議</span><span class="policy-detail">若者世代中心に気候変動を考える市民会議を実施</span></div>
+            <div class="policy-row"><span class="policy-name">ごみ減量・資源化</span><span class="policy-detail">家庭ごみ資源化モデル事業の拡充、循環型ごみゼロタウン</span></div>
+            <div class="policy-row"><span class="policy-name">インクルーシブ公園</span><span class="policy-detail">梶野公園・栗山公園・三ツ池公園で障害の有無に関わらず遊べる公園づくり</span></div>
+            <div class="policy-row"><span class="policy-name">駅周辺・公共交通</span><span class="policy-detail">武蔵小金井駅周辺再開発、東小金井駅北口整備、交通ネットワーク再編</span></div>
+          </div>
+          <details class="policy-more">
+            <summary>すべての施策を見る</summary>
+            <div class="policy-list">
+              <div class="policy-row"><span class="policy-name">食品ロス削減</span><span class="policy-detail">食品ロス削減推進計画に基づく施策推進</span></div>
+              <div class="policy-row"><span class="policy-name">下水道施設</span><span class="policy-detail">下水道総合計画・経営戦略の改定、使用料金の改定</span></div>
+              <div class="policy-row"><span class="policy-name">木造住宅耐震化</span><span class="policy-detail">助成対象を新基準の木造住宅まで拡充</span></div>
+              <div class="policy-row"><span class="policy-name">無電柱化</span><span class="policy-detail">緑中央通り・武蔵小金井通り継続、北大通りでも新規着手</span></div>
+              <div class="policy-row"><span class="policy-name">公共交通</span><span class="policy-detail">交通ネットワーク再編、「こがねいバス」イベント開催</span></div>
+            </div>
+          </details>
+        </article>
+        <article class="policy-card">
+          <div class="num">02</div>
+          <h3>地域と経済</h3>
+          <p>防災・防犯、自治体間連携、産業と農業の振興で、地域の力を高めます。</p>
+          <div class="policy-list">
+            <div class="policy-row"><span class="policy-name">防災・減災</span><span class="policy-detail">自主防災組織向け講座拡充、防災フェスタ・総合防災訓練の見直し</span></div>
+            <div class="policy-row"><span class="policy-name">トイレ防災</span><span class="policy-detail">クラウドファンディング活用のトイレカー導入</span></div>
+            <div class="policy-row"><span class="policy-name">災害対策本部訓練</span><span class="policy-detail">図上訓練・シミュレーション訓練の導入</span></div>
+            <div class="policy-row"><span class="policy-name">防犯対策</span><span class="policy-detail">特殊詐欺・闇バイト対策、防犯機器購入等補助事業の継続</span></div>
+            <div class="policy-row"><span class="policy-name">産業・農業振興</span><span class="policy-detail">東小金井エリアの創業支援、農地保全・農業経営の継続支援</span></div>
+          </div>
+          <details class="policy-more">
+            <summary>すべての施策を見る</summary>
+            <div class="policy-list">
+              <div class="policy-row"><span class="policy-name">消防団強化</span><span class="policy-detail">ポンプ車の順次更新</span></div>
+              <div class="policy-row"><span class="policy-name">自治体間連携</span><span class="policy-detail">長野県飯田市を訪問し連携協定締結・情報交換</span></div>
+              <div class="policy-row"><span class="policy-name">産業振興</span><span class="policy-detail">産業振興プランに基づく賑わい創出、東小金井エリアの創業支援</span></div>
+              <div class="policy-row"><span class="policy-name">農業振興</span><span class="policy-detail">都市農業の多面的機能活用、農地保全・農業経営の継続支援</span></div>
+            </div>
+          </details>
+        </article>
+        <article class="policy-card">
+          <div class="num">03</div>
+          <h3>子どもと教育</h3>
+          <p>保育の質、子どもの権利、多様な学び、学校環境を総合的に前へ進めます。</p>
+          <div class="policy-list">
+            <div class="policy-row"><span class="policy-name">伸びゆく子どもプラン</span><span class="policy-detail">教育保育の質の維持向上施策を推進</span></div>
+            <div class="policy-row"><span class="policy-name">市立保育園の役割実現</span><span class="policy-detail">人員体制拡充、保育環境整備、老朽化施設の改修検討</span></div>
+            <div class="policy-row"><span class="policy-name">子ども誰でも通園制度</span><span class="policy-detail">民間施設と市立保育園2園で一時預かり等通園支援事業を実施</span></div>
+            <div class="policy-row"><span class="policy-name">多様な学び支援</span><span class="policy-detail">校内別室・教育支援センターの全校実施、チャレンジクラス設置</span></div>
+            <div class="policy-row"><span class="policy-name">学校施設・トイレ整備</span><span class="policy-detail">校舎改築・増築、洋便化と乾式化など環境改善</span></div>
+          </div>
+          <details class="policy-more">
+            <summary>すべての施策を見る</summary>
+            <div class="policy-list">
+              <div class="policy-row"><span class="policy-name">1ヶ月児健康診査</span><span class="policy-detail">都内共通受診券の導入、DX化推進</span></div>
+              <div class="policy-row"><span class="policy-name">ひとり親家庭支援</span><span class="policy-detail">日本シングルマザー支援協会との連携協定</span></div>
+              <div class="policy-row"><span class="policy-name">栗保育園・桜保育園</span><span class="policy-detail">段階的な定員縮小に伴い閉園まで保育に支障なく対応</span></div>
+              <div class="policy-row"><span class="policy-name">保育所指導検査</span><span class="policy-detail">市単独での認可保育所指導検査を実施</span></div>
+              <div class="policy-row"><span class="policy-name">学童保育所の大規模化対策</span><span class="policy-detail">放課後児童対策パッケージ2026、民設民営学童保育所の推進</span></div>
+              <div class="policy-row"><span class="policy-name">学童プール事故対応</span><span class="policy-detail">検証委員会報告書に基づく安全対策</span></div>
+              <div class="policy-row"><span class="policy-name">子どもの権利の日制定</span><span class="policy-detail">子どもの権利条例を制定、イベント実施で普及啓発</span></div>
+              <div class="policy-row"><span class="policy-name">教育大綱</span><span class="policy-detail">第4次みらいのこがねい教育プラン策定</span></div>
+              <div class="policy-row"><span class="policy-name">水泳授業改革</span><span class="policy-detail">外部プール指導委託、全校に水泳インストラクター派遣</span></div>
+            </div>
+          </details>
+        </article>
+        <article class="policy-card">
+          <div class="num">04</div>
+          <h3>文化と生涯学習</h3>
+          <p>芸術文化、平和、男女共同参画、生涯学習とスポーツを暮らしの力にします。</p>
+          <div class="policy-list">
+            <div class="policy-row"><span class="policy-name">芸術文化振興</span><span class="policy-detail">市民交流センター・はけの森美術館を中心に活性化</span></div>
+            <div class="policy-row"><span class="policy-name">男女共同参画</span><span class="policy-detail">第7次行動計画の初年度、ファミリーシップ制度の検討着手</span></div>
+            <div class="policy-row"><span class="policy-name">平和事業</span><span class="policy-detail">戦後80年、「参加の旅」等を通じた平和意識向上</span></div>
+            <div class="policy-row"><span class="policy-name">生涯学習・スポーツ</span><span class="policy-detail">第5次生涯学習推進計画に基づく施策とスポーツ振興</span></div>
+          </div>
+        </article>
+      </div>
+      <div class="theme-strip" aria-label="横断的テーマ">
+        <div class="theme-chip"><strong>DX推進</strong><span>自治体DX・AI活用、HP刷新、市報リニューアル、健診DX</span></div>
+        <div class="theme-chip"><strong>行財政改革</strong><span>行財政改革2030、持続可能な自治体経営</span></div>
+        <div class="theme-chip"><strong>広報改革</strong><span>公式LINE、市報リニューアル、HP刷新</span></div>
+        <div class="theme-chip"><strong>市民参加・協働</strong><span>若者の市政参画、子どもの権利推進、気候市民会議</span></div>
+        <div class="theme-chip"><strong>人口減少対策</strong><span>地域の担い手不足、労働力人口減少を見据えた対応</span></div>
+      </div>
+    </section>
+
+    <section id="results" class="section alt">
+      <div class="section-head">
+        <h2 class="section-title">白井とおるの実績</h2>
+        <p class="note">4年間で進めてきた施策を、暮らしに近いテーマごとに整理しました。</p>
+      </div>
+      <div class="results">
+        <article class="result-item">
+          <div class="badge">01</div>
+          <div>
+            <h3>子育て・教育の前進</h3>
+            <p>中学生サミット、若者MIRAIトーク、給食無償化、校内別室指導、産後ケア拡充などを推進。</p>
+          </div>
+        </article>
+        <article class="result-item">
+          <div class="badge">02</div>
+          <div>
+            <h3>市民サービスの向上</h3>
+            <p>おくやみ手続窓口、キャッシュレス決済、コンビニ交付10円キャンペーン、書かない窓口、母子アプリを導入。</p>
+          </div>
+        </article>
+        <article class="result-item">
+          <div class="badge">03</div>
+          <div>
+            <h3>都市整備・環境・公園</h3>
+            <p>サステナブルパークこがねい稼働、生ごみ資源化、シェアサイクル実証、粗大ごみオンライン申請、公園の新しい魅力づくりへ。</p>
+          </div>
+        </article>
+        <article class="result-item">
+          <div class="badge">04</div>
+          <div>
+            <h3>福祉・防災・地域安全</h3>
+            <p>重層的支援体制、認知症施策、ICT見守り、防犯機器購入補助、災害時相互応援協定などを進めました。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="message" class="section message">
+      <figure>
+        <img src="assets/photo-image01.png" alt="白井とおる">
+      </figure>
+      <div>
+        <h2>次の小金井へ</h2>
+        <p>2022年10月、前市長の突然の辞職から市長選挙となり、私は選挙を戦い11月27日に市長に就任しました。辞職の原因となった保育園の問題をはじめとして、山積する市政課題と向き合い続け、取り組んだ3年半でした。</p>
+        <p>今後より厳しい時代へと突入するにあたり、それらの課題解決とともに欠かせないことは、行政改革の実行と組織の活性化、そして市民の皆様や地域団体・企業等との協働です。「質の改革への転換」をさらに色濃くした行財政改革2030の策定、市民サービスの向上と実務の高効率化をめざす新たなDX推進方針とアクションプランの策定をはじめ、それらの実践を強く推し進めてきたところです。</p>
+        <p>組織の活性化と進化のため、副市長2人を共に外部からお招きし、改善改革運動をリニューアルして日常の事務改善を奨励し、部長職者との1on1ミーティングや月初の庁内放送の実施等に取り組んできました。市民の皆様に市政に興味関心を持っていただくことを狙い、市報こがねいの誌面を数十年ぶりに刷新、市公式LINEの導入・運用や市公式HPのリニューアル、若者を中心とした無作為抽出での審議会等への呼びかけ等により、市政の「見える化」、「わかる化」、「自分ごと化」への取り組みを進めています。</p>
+        <p>まだまだ課題は多く、ごく小さな改革でも成果を積み重ねることを念頭に、今も日々格闘しています。</p>
+        <a class="button primary" href="#profile">プロフィールを見る</a>
+      </div>
+    </section>
+
+    <section id="support" class="footer-cta">
+      <h2>白井とおる2026</h2>
+      <a class="button" href="#">サポートする</a>
+    </section>
+  </main>
+  <script>
+    (() => {
+      const PASSWORD_HASH = "06c08abef0c1979b5eb8e4d32c644a53f78b281e05e8ce1852586314017be014";
+      const STORAGE_KEY = "shirai-toru-2026-review-auth";
+      const encoder = new TextEncoder();
+
+      const toHex = (buffer) => Array.from(new Uint8Array(buffer))
+        .map((byte) => byte.toString(16).padStart(2, "0"))
+        .join("");
+
+      const digest = async (value) => {
+        const buffer = await crypto.subtle.digest("SHA-256", encoder.encode(value));
+        return toHex(buffer);
+      };
+
+      const unlock = () => {
+        document.body.classList.remove("auth-locked");
+      };
+
+      if (sessionStorage.getItem(STORAGE_KEY) === PASSWORD_HASH) {
+        unlock();
+      }
+
+      const form = document.querySelector(".auth-form");
+      const error = document.querySelector(".auth-error");
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        const password = new FormData(form).get("password") || "";
+        if (await digest(password) === PASSWORD_HASH) {
+          sessionStorage.setItem(STORAGE_KEY, PASSWORD_HASH);
+          unlock();
+          return;
+        }
+        error.textContent = "パスワードが違います。";
+        form.password.value = "";
+        form.password.focus();
+      });
+    })();
+  </script>
+</body>
+</html>
