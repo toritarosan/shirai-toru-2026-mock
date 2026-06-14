@@ -1,27 +1,14 @@
-# 白井とおる2026 サイトモック レビュー用
+# Shirai Toru 2026 Mock
 
-`index.html` をブラウザで開いて確認してください。
+This repository hosts the Plan A poster-style mockup for review.
 
-このレビュー版には簡易パスワード画面を入れています。
-パスワードは別途共有してください。
+- Public page: GitHub Pages
+- Password: none
+- Entry file: `index.html`
 
-注意: これはGitHub Pagesでも動く「軽い目隠し」です。HTML/JavaScriptを読める人には回避可能なので、機密資料の保護には使わないでください。
+## Review Focus
 
-## 見てほしい観点
-
-- ファーストビューの印象は親しみやすいか
-- 「4つの課題への取り組み」が伝わるか
-- 「政策Next」の情報量は読みやすいか
-- 「白井とおるの実績」の内容は信頼感につながるか
-- スマートフォンで見ても文字量や余白が重くないか
-
-## 共有時の注意
-
-このフォルダごと共有してください。`index.html` だけを送ると画像が表示されません。
-
-## GitHub Pagesで公開する場合
-
-1. GitHubで新しいリポジトリを作成します。
-2. このフォルダの中身をリポジトリ直下にアップロードします。
-3. GitHubの `Settings` → `Pages` で、公開元を `main` ブランチの `/root` にします。
-4. 表示されたURLをレビュアーに共有します。
+- First-view impact
+- Readability of the hero copy
+- Balance between campaign energy and trust
+- Mobile readability

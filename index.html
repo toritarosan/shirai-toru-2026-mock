@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>小金井市長 白井とおる | Visual Mock</title>
+  <title>A案 ポスター型 | 小金井市長 白井とおる</title>
   <style>
     :root {
       --yellow: #fff100;
@@ -26,87 +26,6 @@
       font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
       line-height: 1.75;
       letter-spacing: 0;
-    }
-
-    body.auth-locked {
-      overflow: hidden;
-    }
-
-    body.auth-locked .site-header,
-    body.auth-locked main {
-      display: none;
-    }
-
-    .auth-screen {
-      display: none;
-    }
-
-    body.auth-locked .auth-screen {
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      padding: 28px;
-      background:
-        linear-gradient(100deg, rgba(0, 160, 233, .92) 0%, rgba(55, 185, 239, .92) 100%),
-        #00a0e9;
-    }
-
-    .auth-panel {
-      width: min(520px, 100%);
-      padding: clamp(26px, 5vw, 44px);
-      background: #fff;
-      border: 6px solid var(--yellow);
-      box-shadow: 10px 10px 0 rgba(23, 33, 43, .22);
-    }
-
-    .auth-panel h1 {
-      margin: 0 0 12px;
-      color: var(--enji);
-      background: none;
-      -webkit-background-clip: initial;
-      background-clip: initial;
-      filter: none;
-      font-size: clamp(30px, 5vw, 48px);
-      line-height: 1.12;
-      font-weight: 950;
-    }
-
-    .auth-panel p {
-      margin: 0 0 22px;
-      color: var(--muted);
-      font-weight: 700;
-    }
-
-    .auth-form {
-      display: grid;
-      gap: 12px;
-    }
-
-    .auth-form input {
-      width: 100%;
-      min-height: 54px;
-      padding: 12px 14px;
-      border: 3px solid var(--ink);
-      font: inherit;
-      font-weight: 800;
-    }
-
-    .auth-form button {
-      min-height: 54px;
-      border: 3px solid var(--ink);
-      color: #fff;
-      background: var(--blue);
-      font: inherit;
-      font-weight: 950;
-      cursor: pointer;
-      box-shadow: 5px 5px 0 var(--ink);
-    }
-
-    .auth-error {
-      min-height: 1.4em;
-      color: var(--enji);
-      font-size: 14px;
-      font-weight: 900;
     }
 
     a { color: inherit; text-decoration: none; }
@@ -846,20 +765,167 @@
       .result-item { grid-template-columns: 1fr; }
       .message figure { min-height: 380px; }
     }
+    /* Variant A: poster impact */
+    .site-header {
+      background: rgba(0, 160, 233, .98);
+      border-bottom: 10px solid var(--yellow);
+      box-shadow: 0 10px 0 rgba(23, 33, 43, .08);
+    }
+
+    .brand {
+      min-width: min(560px, 46vw);
+      background: transparent;
+      border-bottom: 0;
+    }
+
+    .nav a { color: #fff; }
+    .nav-cta { background: var(--enji); }
+
+    .hero {
+      min-height: min(880px, calc(100vh - 86px));
+      grid-template-columns: minmax(0, 1fr) minmax(470px, 43vw);
+      background: var(--blue);
+    }
+
+    .hero::before {
+      background:
+        linear-gradient(112deg, var(--yellow) 0 18%, transparent 18% 100%),
+        linear-gradient(167deg, transparent 0 56%, rgba(228, 0, 127, .92) 56% 100%),
+        linear-gradient(90deg, var(--blue) 0%, #2db9f0 100%);
+      opacity: 1;
+    }
+
+    .hero::after {
+      right: 0;
+      height: clamp(148px, 18vw, 220px);
+      background: var(--enji);
+      border-top: 10px solid var(--yellow);
+      clip-path: polygon(0 22%, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .hero-copy {
+      max-width: none;
+      padding: clamp(58px, 7vw, 94px) clamp(22px, 5vw, 74px) clamp(220px, 23vw, 280px);
+    }
+
+    .hero-copy::before {
+      content: "白井とおる 2026";
+      left: clamp(22px, 5vw, 72px);
+      top: clamp(22px, 4vw, 42px);
+      width: auto;
+      height: auto;
+      color: rgba(255, 255, 255, .16);
+      background: none;
+      border-radius: 0;
+      font-size: clamp(70px, 11vw, 170px);
+      font-weight: 950;
+      line-height: .9;
+      white-space: nowrap;
+      transform: rotate(-4deg);
+    }
+
+    .hero-copy::after { display: none; }
+
+    h1,
+    .main-line,
+    .name-line {
+      color: #fff;
+      background: none;
+      -webkit-background-clip: initial;
+      background-clip: initial;
+      filter: drop-shadow(5px 5px 0 rgba(23, 33, 43, .18));
+    }
+
+    .main-line {
+      font-size: clamp(68px, 8.8vw, 140px);
+      line-height: .96;
+    }
+
+    .name-line {
+      font-size: clamp(58px, 7.6vw, 122px);
+      line-height: 1.02;
+    }
+
+    .lead {
+      max-width: 700px;
+      margin-top: 30px;
+      padding: 18px 22px;
+      color: var(--ink);
+      background: #fff;
+      border-left: 14px solid var(--yellow);
+      font-size: clamp(18px, 1.8vw, 26px);
+      font-weight: 800;
+      box-shadow: 8px 8px 0 rgba(23, 33, 43, .16);
+    }
+
+    .hero-photo {
+      justify-content: center;
+      padding: 0 clamp(12px, 2vw, 30px) 0 0;
+    }
+
+    .hero-photo img {
+      width: min(670px, 50vw);
+      max-height: calc(100vh - 86px);
+      filter: drop-shadow(0 34px 36px rgba(23, 33, 43, .32));
+    }
+
+    .hero-band {
+      width: min(72vw, calc(100% - 420px));
+      color: var(--ink);
+      background: var(--yellow);
+      border-bottom: 10px solid var(--enji);
+      font-size: clamp(42px, 5.5vw, 82px);
+    }
+
+    .play-dot { background: var(--enji); }
+    .play-dot::before { border-left-color: #fff; }
+
+    .quick-links-title {
+      color: var(--enji);
+    }
+
+    @media (max-width: 920px) {
+      .site-header { border-bottom-width: 6px; }
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+      .hero::after { display: block; height: 112px; }
+      .hero-copy {
+        padding: 42px 22px 128px;
+      }
+      .hero-copy::before {
+        font-size: clamp(54px, 16vw, 112px);
+      }
+      .main-line {
+        font-size: clamp(48px, 13vw, 88px);
+      }
+      .name-line {
+        font-size: clamp(40px, 10.6vw, 72px);
+      }
+      .lead {
+        max-width: none;
+        font-size: 16px;
+      }
+      .hero-photo {
+        min-height: 390px;
+        padding: 0 16px;
+      }
+      .hero-photo img {
+        width: min(430px, 88vw);
+        max-height: 390px;
+      }
+      .hero-band {
+        position: relative;
+        width: 100%;
+        min-height: auto;
+        padding: 26px 22px;
+        font-size: clamp(34px, 10vw, 58px);
+      }
+    }
   </style>
 </head>
-<body class="auth-locked">
-  <div class="auth-screen" aria-label="パスワード入力画面">
-    <div class="auth-panel">
-      <h1>白井とおる2026</h1>
-      <p>レビュー用モックです。共有されたパスワードを入力してください。</p>
-      <form class="auth-form">
-        <input type="password" name="password" autocomplete="current-password" placeholder="パスワード" aria-label="パスワード">
-        <button type="submit">表示する</button>
-        <div class="auth-error" role="status" aria-live="polite"></div>
-      </form>
-    </div>
-  </div>
+<body>
   <header class="site-header">
     <a class="brand" href="#">
       <span>
@@ -1052,45 +1118,5 @@
       <a class="button" href="#">サポートする</a>
     </section>
   </main>
-  <script>
-    (() => {
-      const PASSWORD_HASH = "06c08abef0c1979b5eb8e4d32c644a53f78b281e05e8ce1852586314017be014";
-      const STORAGE_KEY = "shirai-toru-2026-review-auth";
-      const encoder = new TextEncoder();
-
-      const toHex = (buffer) => Array.from(new Uint8Array(buffer))
-        .map((byte) => byte.toString(16).padStart(2, "0"))
-        .join("");
-
-      const digest = async (value) => {
-        const buffer = await crypto.subtle.digest("SHA-256", encoder.encode(value));
-        return toHex(buffer);
-      };
-
-      const unlock = () => {
-        document.body.classList.remove("auth-locked");
-      };
-
-      if (sessionStorage.getItem(STORAGE_KEY) === PASSWORD_HASH) {
-        unlock();
-      }
-
-      const form = document.querySelector(".auth-form");
-      const error = document.querySelector(".auth-error");
-
-      form.addEventListener("submit", async (event) => {
-        event.preventDefault();
-        const password = new FormData(form).get("password") || "";
-        if (await digest(password) === PASSWORD_HASH) {
-          sessionStorage.setItem(STORAGE_KEY, PASSWORD_HASH);
-          unlock();
-          return;
-        }
-        error.textContent = "パスワードが違います。";
-        form.password.value = "";
-        form.password.focus();
-      });
-    })();
-  </script>
 </body>
 </html>
